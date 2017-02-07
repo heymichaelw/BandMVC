@@ -1,15 +1,46 @@
-﻿@{
+﻿@model IEnumerable<BandMVC.Models.Band>
+
+@{
     ViewBag.PageTitle = "Home Page";
 }
 
-<div class="row">
-    <div class="col-md-4">
-        
-    </div>
-    <div class="col-md-4">
-        
-    </div>
-    <div class="col-md-4">
-        
-    </div>
-</div>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Title: @Html.TextBox("", null, new { @class = "form-control" })
+        <input type="submit" value="Search" />
+    </p>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BandName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Formed)
+        </th>
+        <th></th>
+    </tr>
+
+
+
+
+    @foreach (var item in ViewBag.AllBands)
+            {
+        <tr>
+            <td>
+                @item.BandName
+            </td>
+            <td>
+                @item.Formed
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+    </table>
+
+

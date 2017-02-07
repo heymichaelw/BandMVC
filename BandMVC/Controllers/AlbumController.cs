@@ -15,9 +15,14 @@ namespace BandMVC.Controllers
         private BandContext db = new BandContext();
 
         // GET: Album
-        public ActionResult Index()
+        public ActionResult Index(string searchstring)
         {
             var albums = db.Albums.Include(a => a.Band);
+
+            if (!String.IsNullOrEmpty(searchstring))
+            {
+                albums = albums.Where(s => s.Title.Contains(searchstring));
+            }
             return View(albums.ToList());
         }
 
@@ -39,7 +44,7 @@ namespace BandMVC.Controllers
         // GET: Album/Create
         public ActionResult Create()
         {
-            ViewBag.BandId = new SelectList(db.Bands, "Id", "Name");
+            ViewBag.BandId = new SelectList(db.Bands, "Id", "BandName");
             return View();
         }
 

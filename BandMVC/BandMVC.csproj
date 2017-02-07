@@ -169,6 +169,18 @@
     <Compile Include="Migrations\201702072008130_DeletedExtraField.Designer.cs">
       <DependentUpon>201702072008130_DeletedExtraField.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702072028073_CanAddBand.cs" />
+    <Compile Include="Migrations\201702072028073_CanAddBand.Designer.cs">
+      <DependentUpon>201702072028073_CanAddBand.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702072038076_ChangedFields.cs" />
+    <Compile Include="Migrations\201702072038076_ChangedFields.Designer.cs">
+      <DependentUpon>201702072038076_ChangedFields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702072128120_ChangedNameToBandName.cs" />
+    <Compile Include="Migrations\201702072128120_ChangedNameToBandName.Designer.cs">
+      <DependentUpon>201702072128120_ChangedNameToBandName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Album.cs" />
     <Compile Include="Models\Band.cs" />
@@ -216,6 +228,7 @@
     <Content Include="Views\Album\Edit.cshtml" />
     <Content Include="Views\Album\Index.cshtml" />
     <Content Include="Views\Band\Create.cshtml" />
+    <Content Include="Views\Band\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -234,6 +247,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702072008130_DeletedExtraField.resx">
       <DependentUpon>201702072008130_DeletedExtraField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702072028073_CanAddBand.resx">
+      <DependentUpon>201702072028073_CanAddBand.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702072038076_ChangedFields.resx">
+      <DependentUpon>201702072038076_ChangedFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702072128120_ChangedNameToBandName.resx">
+      <DependentUpon>201702072128120_ChangedNameToBandName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

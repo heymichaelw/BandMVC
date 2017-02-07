@@ -4,15 +4,23 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Albums</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
+    @using (Html.BeginForm())
+    {
+    <p>
+        Title: @Html.TextBox("searchstring", null, new { @class = "form-control" })
+        <input type="submit" value="Search" />
+    </p>
+    }
+    
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Band.Name)
+            @Html.DisplayNameFor(model => model.Band.BandName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Title)
@@ -29,7 +37,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Band.Name)
+            @Html.DisplayFor(modelItem => item.Band.BandName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Title)
