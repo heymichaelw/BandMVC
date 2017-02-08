@@ -4,11 +4,13 @@
     ViewBag.PageTitle = "Home Page";
 }
 
+<h2>Bands</h2>
 
+@Html.ActionLink("Create New Band", "Create")
 @using (Html.BeginForm())
 {
     <p>
-        Title: @Html.TextBox("", null, new { @class = "form-control" })
+        Title: @Html.TextBox("bandsearch", null, new { @class = "form-control" })
         <input type="submit" value="Search" />
     </p>
 }
@@ -26,17 +28,20 @@
 
 
 
-    @foreach (var item in ViewBag.AllBands)
+    @foreach (var band in ViewBag.AllBands)
             {
         <tr>
             <td>
-                @item.BandName
+                @band.BandName
             </td>
             <td>
-                @item.Formed
+                @band.Formed
             </td>
             <td>
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                @Html.ActionLink("All Albums", "Details", new { id = band.Id } )
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { id = band.Id })
             </td>
         </tr>
     }

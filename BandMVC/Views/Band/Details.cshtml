@@ -1,0 +1,17 @@
+﻿@model BandMVC.Models.Band
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Albums</h4>
+    <hr />
+        
+        @foreach (var album in ViewBag.AllAlbums)
+        {
+            @album.Title
+        }
+        
+</div>

@@ -16,6 +16,7 @@ namespace BandMVC.Controllers
 
         public ActionResult Index(string bandsearch)
         {
+            var bands = db.Bands.Include(a => a.Albums);
             ViewBag.AllBands = db.Bands.OrderBy(b => b.BandName).ToList();
 
             if (!String.IsNullOrEmpty(bandsearch))
@@ -34,7 +35,7 @@ namespace BandMVC.Controllers
             {
                 db.Bands.Add(band);
                 db.SaveChanges();
-                return View();
+                return RedirectToAction("Index");
             }
             else
             {
@@ -65,6 +66,13 @@ namespace BandMVC.Controllers
             db.Bands.Remove(band);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult Details(int? id)
+        {
+            Band band = db.Bands.Find(id);
+            ViewBag.AllAlbums = band.Albums.ToList();
+            return View(band);
         }
 
     }
